@@ -1,18 +1,14 @@
-.PHONY: build run stop exec
+.PHONY: init deploy ssh teardown
 
-CVE_2025_31133_PATH=scripts/cve-2025-31133-poc.py
+init:
+	terraform -chdir=terraform init
 
-build:
-	docker build \
-		--build-arg TAG=28.4-dind \
-		--build-arg SCRIPT="$(CVE_2025_31133_PATH)" \
-		-t cee:cve-2025-31133 .
+deploy: init
+	terraform -chdir=terraform apply
+	@terraform -chdir=terraform output ssh_command
 
-run:
-	docker run -d --rm --name cee-cve-2025-31133 --privileged cee:cve-2025-31133
+ssh:
+	@bash -c "$$(terraform -chdir=terraform output -raw ssh_command)"
 
-stop:
-	docker stop cee-cve-2025-31133
-
-exec:
-	docker exec -it cee-cve-2025-31133 /bin/bash
+teardown:
+	terraform -chdir=terraform destroy -auto-approve
