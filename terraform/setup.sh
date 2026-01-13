@@ -18,9 +18,12 @@ tar -xvf tetragon-v1.6.0-amd64.tar.gz
 tetragon-v1.6.0-amd64/install.sh
 rm -rf tetragon-v1.6.0-amd64.tar.gz tetragon-v1.6.0-amd64
 
-# Copy the rules and restart tetragon
+# Copy PoCs to a non-tmpfs filesystem
+mkdir /pocs && cp /tmp/pocs/* /pocs
+
+# Copy the rules and stop tetragon service initially
 cp /tmp/rules/* /etc/tetragon/tetragon.tp.d
-systemctl restart tetragon
+systemctl stop tetragon
 
 # Set setuid bit on runc
 chmod u+s /usr/local/bin/runc
