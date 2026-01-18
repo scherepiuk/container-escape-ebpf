@@ -39,7 +39,7 @@ resource "aws_key_pair" "aws" {
 
 resource "aws_instance" "vm" {
   ami           = "ami-0a854fe96e0b45e4e"
-  instance_type = "t3.micro"
+  instance_type = "t3.2xlarge"
   key_name      = aws_key_pair.aws.key_name
 
   vpc_security_group_ids = [aws_security_group.vm_sg.id]
@@ -53,7 +53,7 @@ resource "null_resource" "directories" {
   depends_on = [aws_instance.vm]
 
   provisioner "remote-exec" {
-    inline = ["sudo mkdir -m 777 -p /tmp/pocs /tmp/rules"]
+    inline = ["sudo mkdir -m 777 -p /tmp/pocs /tmp/rules /tmp/utils"]
 
     connection {
       type        = "ssh"

@@ -21,6 +21,10 @@ rm -rf tetragon-v1.6.0-amd64.tar.gz tetragon-v1.6.0-amd64
 # Copy PoCs to a non-tmpfs filesystem
 mkdir /pocs && cp /tmp/pocs/* /pocs
 
+# Copy utility scripts to a non-tmpfs filesystem
+mkdir /utils && cp /tmp/utils/* /utils
+chmod a+x /utils/reset.sh
+
 # Copy the rules and stop tetragon service initially
 cp /tmp/rules/* /etc/tetragon/tetragon.tp.d
 systemctl stop tetragon

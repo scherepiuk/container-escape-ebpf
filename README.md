@@ -28,7 +28,7 @@ Exploit succeeded!
 ubuntu@vm:~$ ls -la /pwned_by_cve_2025_31133
 -rw-r--r-- 1 root root 0 Jan 13 13:52 /pwned_by_cve_2025_31133
 
-ubuntu@vm:~$ sudo rm /pwned*
+ubuntu@vm:~$ /utils/reset.sh
 ubuntu@vm:~$ sudo systemctl start tetragon
 
 ubuntu@vm:~$ python3 /pocs/cve-2024-21626.py
